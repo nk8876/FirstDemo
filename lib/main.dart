@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -11,8 +10,13 @@ void main() {
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.deepOrangeAccent,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Awesome App"),
+      ),
+      body: Container(
+        child: Center(child: Text("Hi Abhishek Kumar")),
+      ),
     );
   }
 }
