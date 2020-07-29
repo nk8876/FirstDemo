@@ -4,6 +4,7 @@ void main() {
   runApp(MaterialApp(
     title: "Awesome App",
     home: HomePage(),
+    theme: ThemeData(primarySwatch: Colors.purple),
   ));
 }
 
@@ -11,44 +12,41 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Awesome App"),
+      appBar: AppBar(
+        title: Text("Awesome App"),
+      ),
+      body: Container(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text("Naresh Kumar"),
+              accountEmail: Text("kumarnaresh1214@gmail.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Account"),
+              subtitle: Text("Peronal"),
+              trailing: Icon(Icons.edit),
+            ),
+            ListTile(
+              leading: Icon(Icons.email),
+              title: Text("Email"),
+              subtitle: Text("kumarnaresh@mail.com"),
+              trailing: Icon(Icons.send),
+            )
+          ],
         ),
-        body: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Align(
-                alignment: Alignment.center,
-                child: Container(
-                  color: Colors.black,
-                  width: 200,
-                  height: 400,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          padding: const EdgeInsets.all(10.0),
-                          height: 100,
-                          width: 100,
-                          color: Colors.blue,
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(10.0),
-                          height: 100,
-                          width: 100,
-                          color: Colors.green,
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(10.0),
-                          height: 100,
-                          width: 100,
-                          color: Colors.yellow,
-                        ),
-                      ],
-                    ),
-                  ),
-                ))));
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.edit),
+      ),
+    );
   }
 }
