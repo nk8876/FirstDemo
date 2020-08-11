@@ -9,8 +9,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  TextEditingController _nameController = TextEditingController();
-  var myText = "Change me";
+  //var myText;
+  // TextEditingController _nameController = TextEditingController();
   var url = "https://jsonplaceholder.typicode.com/photos";
   var data;
   @override
@@ -21,7 +21,6 @@ class _HomePageState extends State<HomePage> {
 
   getData() async {
     var res = await http.get(url);
-    // print(res.body);
     data = jsonDecode(res.body);
     print(data);
     setState(() {});
@@ -55,7 +54,7 @@ class _HomePageState extends State<HomePage> {
       drawer: MyDrawer(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          myText = _nameController.text;
+          // myText = _nameController.text;
           setState(() {});
         },
         child: Icon(Icons.refresh),
